@@ -1,9 +1,16 @@
 <?php
 
+// pre_re($_POST);
+// function pre_re($array)
+// {
+//     print_r($array);
+
+// }
 $result = "";
+
 if (isset($_POST['submit']) && !empty($_POST['submit'])) {
-    echo "Name:";
-    echo "DES:" . $_POST['desc'];
+
+    echo "INSIDE POST";
     echo $result;
 } else {
     $customer_name = $_POST['name'];
@@ -11,14 +18,13 @@ if (isset($_POST['submit']) && !empty($_POST['submit'])) {
     $scheduled_date = date('d-m-Y', strtotime($_POST['dateNtime']));
     $scheduled_time = date('H:i', strtotime($_POST['dateNtime']));
 
-
     $result = $block->getArticles($customer_name,
         $problem_description,
         $scheduled_date,
         $scheduled_time);
     echo $result;
 }
-?>
+ ?>
 
 <style>
     * {
@@ -99,7 +105,7 @@ if (isset($_POST['submit']) && !empty($_POST['submit'])) {
                             <input
                                 name="dateNtime"
                                 id="dateTime"
-                                title="Select Date& time"
+                                title="Select Date & time"
                                 class="input-text"
                                 type="datetime-local"
                                 value=""
