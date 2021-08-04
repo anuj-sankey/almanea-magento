@@ -1,0 +1,198 @@
+<!-- <?php
+$result ='';
+if( isset($_GET['submit']) )
+{
+    be sure to validate and clean your variables
+    <?php echo $block->getArticles("Anuj",909);
+    $val1 = htmlentities($_GET['val1']);
+    $val2 = htmlentities($_GET['val2']);
+
+    then you can use them in a PHP function. 
+    $result = $block->getArticles("Anuj",909);
+}
+
+echo $result;
+?> -->
+
+<!-- if (isset($_POST['submit'])) {
+
+    echo "Name:";
+
+    echo "DES:" . $_POST['desc'];
+} -->
+
+<!-- print_r($userName);
+ print_r($userDesc);
+
+ function pre_r($array){
+
+
+      print_r($array);
+
+ } -->
+
+<!-- pre_r($_POST);
+
+ $userName = "";
+ $userDesc = "";
+ $result = "";
+
+ $userName = $_POST["name"];
+ $userDesc = $_POST["desc"];
+
+ $result = $block->getArticles($userName,$userDesc);
+ print_r($result); -->
+
+<!-- <div class="row">
+    <div class="column">
+
+        <div class="field name required">
+            <label class="label" for="time"
+                ><span>Select maintenance time</span></label
+            >
+
+            <div class="control">
+                <input
+                    name="time"
+                    id="time"
+                    title="Select time"
+                    class="input-text"
+                    type="time"
+                    data-validate="{required:true}"
+                />
+            </div>
+        </div>
+    </div>
+
+</div> -->
+
+<?php
+
+// echo "Name:" . $_POST['name'];
+// echo "DES:" . $_POST['desc'];
+
+$result = "";
+if (isset($_POST['submit']) && !empty($_POST['submit'])) {
+    echo "Name:";
+    echo "DES:" . $_POST['desc'];
+    echo $result;
+} else {
+    $result = $block->getArticles($_POST['desc'], 909); echo $result; } ?>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        /* Set additional styling options for the columns*/
+        
+        .column {
+            float: left;
+            width: 30%;
+        }
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="form-container">
+            <form action="" method="POST">
+                <fieldset class="fieldset">
+                    <legend class="legend">
+                        <span>Schedule Maintenance</span>
+                    </legend>
+                    <br />
+
+                    <div class="field name required">
+                        <label class="label" for="name"><span>Name</span></label
+                        >
+
+                        <div class="control">
+                            <input
+                                name="name"
+                                id="name"
+                                title="Name"
+                                placeholder="Enter you full name"
+                                class="input-text"
+                                type="text"
+                                data-validate="{required:true}"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="field name required">
+                        <label class="label" for="desc"
+                            ><span>Problem</span></label
+                        >
+
+                        <div class="control">
+                            <input
+                                name="desc"
+                                id="desc"
+                                title="Problem Description"
+                                placeholder="Problem Description"
+                                class="input-text"
+                                type="text"
+                                data-validate="{required:true}"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="field name required column">
+                        <label class="label" for="date"
+                            ><span>Select maintenance date & time</span></label
+                        >
+
+                        <div class="control">
+                            <input
+                                name="date"
+                                id="date"
+                                title="Select Date& time"
+                                class="input-text"
+                                type="datetime-local"
+                                placeholder="dd-mm-yyyy"
+                                value=""
+                                min="1997-01-01"
+                                max="2030-12-31"
+                                data-validate="{required:true}"
+                            />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <input
+                            type="hidden"
+                            name="hideit"
+                            id="hideit"
+                            value=""
+                        />
+
+                        <button
+                            type="submit"
+                            title="submit"
+                            class="action submit primary"
+                            id="custom_btn"
+                        >
+                            <span>Schedule Maintenance</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

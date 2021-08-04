@@ -1,0 +1,135 @@
+<?php
+
+$result = "";
+if (isset($_POST['submit']) && !empty($_POST['submit'])) {
+    echo "Name:";
+    echo "DES:" . $_POST['desc'];
+    echo $result;
+} else {
+    $customer_name = $_POST['name'];
+    $problem_description = $_POST['desc'];
+    $scheduled_date = date('d-m-Y', strtotime($_POST['dateNtime']));
+    $scheduled_time = date('H:i', strtotime($_POST['dateNtime']));
+
+
+    $result = $block->getArticles($customer_name,
+        $problem_description,
+        $scheduled_date,
+        $scheduled_time);
+    echo $result;
+}
+?>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    /* Set additional styling options for the columns*/
+    .column {
+        float: left;
+        width: 30%;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="form-container">
+            <form action="" method="POST">
+                <fieldset class="fieldset">
+                    <legend class="legend">
+                        <span>Schedule Maintenance</span>
+                    </legend>
+                    <br />
+
+                    <div class="field name required">
+                        <label class="label" for="name"
+                            ><span>Name</span></label
+                        >
+
+                        <div class="control">
+                            <input
+                                name="name"
+                                id="name"
+                                title="Name"
+                                placeholder="Enter you full name"
+                                class="input-text"
+                                type="text"
+                                data-validate="{required:true}"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="field name required">
+                        <label class="label" for="desc"
+                            ><span>Problem</span></label
+                        >
+
+                        <div class="control">
+                            <input
+                                name="desc"
+                                id="desc"
+                                title="Problem Description"
+                                placeholder="Problem Description"
+                                class="input-text"
+                                type="text"
+                                data-validate="{required:true}"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="field name required column">
+                        <label class="label" for="date"
+                            ><span>Select maintenance date & time</span></label
+                        >
+
+                        <div class="control">
+                            <input
+                                name="dateNtime"
+                                id="dateTime"
+                                title="Select Date& time"
+                                class="input-text"
+                                type="datetime-local"
+                                value=""
+
+                                data-validate="{required:true}"
+                            />
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <input
+                            type="hidden"
+                            name="hideit"
+                            id="hideit"
+                            value=""
+                        />
+
+                        <button
+                            type="submit"
+                            title="submit"
+                            class="action submit primary"
+                            id="custom_btn"
+                        >
+                            <span>Schedule Maintenance</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
