@@ -8,11 +8,8 @@
 // }
 $result = "";
 
-if (isset($_POST['submit']) && !empty($_POST['submit'])) {
+if (isset($_POST['submit'])) {
 
-    echo "INSIDE POST";
-    echo $result;
-} else {
     $customer_name = $_POST['name'];
     $problem_description = $_POST['desc'];
     $scheduled_date = date('d-m-Y', strtotime($_POST['dateNtime']));
@@ -24,7 +21,7 @@ if (isset($_POST['submit']) && !empty($_POST['submit'])) {
         $scheduled_time);
     echo $result;
 }
- ?>
+?>
 
 <style>
     * {
@@ -127,7 +124,8 @@ if (isset($_POST['submit']) && !empty($_POST['submit'])) {
 
                         <button
                             type="submit"
-                            title="submit"
+                            value="submit"
+                            name="submit"
                             class="action submit primary"
                             id="custom_btn"
                         >
